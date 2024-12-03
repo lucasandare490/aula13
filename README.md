@@ -1,151 +1,77 @@
-# Documentação da aula 10- 
+# Documentação da aula 13/14 
 
 ## Informações Gerais
-- **Data de Execução**: 26/11/2024
-- **Aluno**: Pedro Lucas sp
-# Configuração do Projeto com Reactstrap
+- **Data de Execução**: 02/12/2024
+- **Aluno**: Pedro Lucas & Lucas André
+# React Componentes
 
 ## Passos Realizados
 
-# Documentação: Como implementei o exercício de componentes React - Parte 2
 
-### Criação da pasta `shared` e do arquivo `dishes.js`
+# Exercício: Componentes em React
 
-Primeiro, criei uma pasta chamada `shared` dentro da pasta `src`, onde centralizei os dados dos pratos. Dentro dessa pasta, criei um arquivo `dishes.js` que exporta uma constante `DISHES` contendo um array de objetos, representando cada prato disponível no menu.
+Este projeto faz parte da aula 13 de React, onde o objetivo foi criar e integrar componentes para exibir os detalhes de um prato selecionado, seus comentários, ingredientes e preço em um aplicativo React. Utilizamos Reactstrap e Bootstrap para estilização.
 
-Exemplo do conteúdo de `dishes.js`:
+## Objetivo
 
-```javascript
-export const DISHES = [
-  {
-    id: 0,
-    name: 'Uthappizza',
-    image: 'assets/images/uthappizza.png',
-    category: 'mains',
-    label: 'Hot',
-    price: '4.99',
-    description: 'A unique combination of Indian Uthappam (pancake) and Italian pizza...',
-    comments: [ /* Lista de comentários */ ]
-  },
-  {
-    id: 1,
-    name: 'Zucchipakoda',
-    image: 'assets/images/zucchipakoda.png',
-    category: 'appetizer',
-    label: '',
-    price: '1.99',
-    description: 'Deep fried Zucchini coated with mildly spiced Chickpea flour batter...',
-    comments: [ /* Lista de comentários */ ]
-  },
-  /* Mais pratos... */
-];
-```
+Adicionar e configurar um novo componente chamado `DishdetailComponent` para exibir:
 
-Esses dados foram importados para o componente `App.js` para serem passados como props para o componente `MenuComponent`.
+- Os detalhes do prato selecionado.
+- Uma lista de comentários sobre o prato.
+- Os ingredientes e o preço do prato.
 
-### Alteração do componente `MenuComponent.js`
+## Tarefas Realizadas
 
-O componente `MenuComponent` foi refatorado para usar o `Card` do `reactstrap`, conforme solicitado. A funcionalidade de renderizar os pratos foi ajustada para utilizar esse componente, que proporciona uma interface mais limpa e interativa.
+### Tarefa 1: Criar e Integrar o `DishdetailComponent`
+#### Criação do Componente:
+- Criado o componente `DishDetail` no arquivo `DishdetailComponent.js` dentro da pasta `components`.
+- Exportado o componente para ser usado em `MenuComponent.js`.
 
-#### Estrutura do Menu
+#### Integração com o Menu:
+- Substituído o cartão de exibição do prato selecionado em `MenuComponent` pelo componente `DishDetail`.
+- Passadas as informações do prato selecionado como `props` para o `DishDetail`.
 
-O Menu renderiza uma lista de pratos em cartões (`Card`), onde cada prato é exibido com uma imagem e o nome. Ao clicar em um prato, o estado `selectedDish` é atualizado para exibir as informações detalhadas sobre o prato selecionado.
+#### Responsividade:
+- Configurada a visualização do componente utilizando classes do **Bootstrap**:
+  - Detalhes, comentários, ingredientes e preço ocupam toda a largura em telas pequenas (`xs`, `sm`).
+  - Cada elemento ocupa 5 colunas em telas médias (`md`) ou maiores.
 
-Exemplo de implementação do componente `MenuComponent`:
+### Tarefa 2: Exibir os Detalhes do Prato com Reactstrap
 
-```javascript
-import React, { useState } from 'react';
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+#### Função `renderDish`:
+- Implementada a função para exibir o prato em um cartão estilizado com **Reactstrap**.
+- Configurado o cartão com os seguintes elementos:
+  - **Título**: Nome do prato (usando `CardTitle`).
+  - **Descrição**: Texto descritivo do prato (usando `CardText`).
+  - **Ingredientes**: Lista dos ingredientes do prato.
+  - **Preço**: Valor do prato exibido de forma destacada.
 
-const Menu = (props) => {
-  const [selectedDish, setSelectedDish] = useState(null);
-  
-  const onDishSelect = (dish) => {
-    setSelectedDish(dish);
-  };
+#### Verificação:
+- Se o prato for `null`, retorna um `div` vazio.
+- Caso contrário, renderiza o cartão com as informações.
 
-  const renderDish = (dish) => {
-    if (dish != null) {
-      return (
-        <Card>
-          <CardImg top src={dish.image} alt={dish.name} />
-          <CardBody>
-            <CardTitle>{dish.name}</CardTitle>
-            <CardText>{dish.description}</CardText>
-          </CardBody>
-        </Card>
-      );
-    } else {
-      return <div></div>;
-    }
-  };
+### Tarefa 3: Exibir os Comentários
 
-  const menu = props.dishes.map((dish) => {
-    return (
-      <div className="col-12 col-md-5 m-1" key={dish.id}>
-        <Card onClick={() => onDishSelect(dish)}>
-          <CardImg width="100%" src={dish.image} alt={dish.name} />
-          <CardImgOverlay>
-            <CardTitle>{dish.name}</CardTitle>
-          </CardImgOverlay>
-        </Card>
-      </div>
-    );
-  });
+#### Função `renderComments`:
+- Criada para exibir a lista de comentários do prato.
+- Utilizada a classe `list-unstyled` do **Bootstrap** para estilizar.
+- Cada comentário contém:
+  - Texto do comentário.
+  - Nome do autor e data.
+- Comentários são agrupados dentro de um `div`, precedidos por um cabeçalho `<h4>Comments</h4>`.
+- Se a lista de comentários for `null`, retorna um `div` vazio.
 
-  return (
-    <div className="container">
-      <div className="row">{menu}</div>
-      <div className="row">
-        <div className="col-12 col-md-5 m-1">
-          {renderDish(selectedDish)}
-        </div>
-      </div>
-    </div>
-  );
-};
+### Adição de Ingredientes e Preço
+- Os **ingredientes** foram incluídos como uma lista exibida no cartão de detalhes do prato.
+- O **preço** do prato foi adicionado como um elemento destacado no cartão, complementando as informações exibidas.
 
-export default Menu;
-```
+### Envio ao GitHub
+- As alterações foram salvas e enviadas ao GitHub com o commit: `"Components Final"`.
 
-### Refatoração do componente `App.js`
+## Resumo
 
-Em `App.js`, importei o arquivo `dishes.js` contendo a constante `DISHES` e a passei como props para o componente `Menu`. Assim, os dados dos pratos são acessíveis no componente `Menu` e podem ser exibidos como cards. A estrutura da `Navbar` foi mantida para que o título "Ristorante Con Fusion" fosse exibido na parte superior da página.
-
-Exemplo de `App.js`:
-
-```javascript
-import './App.css';
-import React, { useState } from 'react';
-import { Navbar, NavbarBrand } from 'reactstrap';
-import Menu from './components/MenuComponent';
-import { DISHES } from './shared/dishes';
-
-function App() {
-  const [dishes] = useState(DISHES);
-
-  return (
-    <div>
-      <Navbar dark color="primary" expand="md">
-        <div className="container">
-          <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
-          <div>Aluno: Fulano de Tal</div>
-        </div>
-      </Navbar>
-      <Menu dishes={dishes} />
-    </div>
-  );
-}
-
-export default App;
-```
-
-### Testes e verificação
-
-Testei a interação entre o menu e os detalhes dos pratos. Ao clicar em um prato, os detalhes correspondentes são renderizados corretamente. Verifiquei também que todos os dados dos pratos (nome, imagem, descrição) estavam sendo exibidos corretamente no componente `Card`.
-
-
-## Conclusão
-
-O exercício foi concluído com sucesso. O componente de menu foi refatorado para exibir os pratos de forma interativa, utilizando o componente `Card` do `reactstrap` para renderizar os pratos e também exibir detalhes sobre o prato selecionado. Além disso, centralizei os dados dos pratos em um arquivo separado (`dishes.js`), mantendo o código mais organizado.
-```
+O projeto agora possui:
+1. Um componente `DishDetail` completamente funcional e responsivo.
+2. Exibição de detalhes do prato usando cartões do **Reactstrap**.
+3. Listagem dos comentários do prato em uma interface clara e organizada.
+4. Adição dos ingredientes e preço, tornando a visualização mais completa.
