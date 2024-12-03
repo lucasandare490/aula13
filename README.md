@@ -75,3 +75,17 @@ O projeto agora possui:
 2. Exibição de detalhes do prato usando cartões do **Reactstrap**.
 3. Listagem dos comentários do prato em uma interface clara e organizada.
 4. Adição dos ingredientes e preço, tornando a visualização mais completa.
+
+## Capturas de Tela
+
+### Exemplo 1
+![Captura de Tela 1](/Captura%20de%20tela%202024-12-02%20233014.png)
+
+### Exemplo 2
+![Captura de Tela 2](/Captura%20de%20tela%202024-12-02%20233030.png)
+
+### Exemplo 3
+![Captura de Tela 3](/Captura%20de%20tela%202024-12-02%20233043.png)
+
+
+
