@@ -11,8 +11,8 @@ function App() {
     <div>
       <Navbar dark color="primary" expand="md">
         <div className="container">
-          <NavbarBrand href="/">Sabores de Pedro e Lucas</NavbarBrand>  {/* Nome atualizado */}
-          <div>Aluno: Pedro Lucas e Lucas André</div>
+          <NavbarBrand href="/">Restaurante: Boca Cheia</NavbarBrand>  {/* Nome atualizado */}
+          <div>Aluno: Pedro Lucas & Lucas André</div>
         </div>
       </Navbar>
       <Menu dishes={dishes} />

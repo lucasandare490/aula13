@@ -1,83 +1,165 @@
 export const DISHES = [
-    {
-      id: 0,
-      name: 'Uthappizza',
-      image: '/assets/images/uthappizza.png',
-      category: 'prato principal',
-      label: 'Quente',
-      price: '4.99',
-      description:
-        'Uma combinação única de Uthappam indiano (panqueca) e pizza italiana, coberta com azeitonas Cerignola, tomates cereja maduros, cebola Vidalia, pimentas Guntur e Paneer de Búfalo.',
-      comments: [
-        {
-          id: 0,
-          rating: 5,
-          comment: 'Imagine todos os comestíveis, vivendo em conFusion!',
-          author: 'John Lemon',
-          date: '2012-10-16T17:57:28.556094Z',
-        },
-        // Outros comentários...
-      ],
-    },
-    {
-      id: 1,
-      name: 'Zucchipakoda',
-      image: '/assets/images/zucchipakoda.png',
-      category: 'aperitivo',
-      label: '',
-      price: '1.99',
-      description:
-        'Abobrinha frita com uma camada de massa de farinha de grão de bico levemente temperada, acompanhada de um molho de tamarindo doce e ácido.',
-      comments: [
-        {
-          id: 0,
-          rating: 5,
-          comment: 'Imagine todos os comestíveis, vivendo em conFusion!',
-          author: 'John Lemon',
-          date: '2012-10-16T17:57:28.556094Z',
-        },
-        // Outros comentários...
-      ],
-    },
-    {
-      id: 2,
-      name: 'Vadonut',
-      image: '/assets/images/vadonut.png',
-      category: 'aperitivo',
-      label: 'Novo',
-      price: '1.99',
-      description:
-        'Uma experiência essencial de ConFusion, é um vada ou um donut?',
-      comments: [
-        {
-          id: 0,
-          rating: 5,
-          comment: 'Imagine todos os comestíveis, vivendo em conFusion!',
-          author: 'John Lemon',
-          date: '2012-10-16T17:57:28.556094Z',
-        },
-        // Outros comentários...
-      ],
-    },
-    {
-      id: 3,
-      name: 'ElaiCheese Cake',
-      image: '/assets/images/elaicheesecake.png',
-      category: 'sobremesa',
-      label: '',
-      price: '2.99',
-      description:
-        'Uma deliciosa e semi-doce Cheesecake estilo Nova Iorque, com crosta de biscoito Graham e temperada com cardamomo indiano.',
-      comments: [
-        {
-          id: 0,
-          rating: 5,
-          comment: 'Imagine todos os comestíveis, vivendo em conFusion!',
-          author: 'John Lemon',
-          date: '2012-10-16T17:57:28.556094Z',
-        },
-        // Outros comentários...
-      ],
-    },
-  ];
-  
+  {
+    id: 0,
+    name: 'Uthappizza',
+    image: 'assets/images/uthappizza.png',
+    category: 'prato principal',
+    label: 'Apimentado',
+    price: '4.99',
+    description: 'Uma combinação única de Uthappam indiano (panqueca) e pizza italiana, coberta com azeitonas Cerignola, tomates cereja maduros, cebola Vidalia, pimenta Guntur e paneer de búfala.',
+    ingredients: [
+      'Base de Uthappam (panqueca indiana)',
+      'Molho de tomate temperado',
+      'Azeitonas Cerignola',
+      'Tomates cereja',
+      'Cebola Vidalia',
+      'Pimenta Guntur',
+      'Paneer de búfala',
+    ],
+    recipe: 'Prepare uma base de Uthappam macia. Espalhe uma mistura de molho de tomate e especiarias indianas. Adicione azeitonas, tomates cereja, cebola Vidalia, pimentas e Paneer. Asse até dourar e ficar crocante.',
+    comments: [
+      {
+        id: 0,
+        rating: 5,
+        comment: "O melhor prato de fusão que já provei!",
+        author: "Alice Cooper",
+        date: "2023-09-15T17:57:28.556094Z",
+      },
+      {
+        id: 1,
+        rating: 4,
+        comment: "Adorei a picância. Perfeito equilíbrio de sabores.",
+        author: "Bob Marley",
+        date: "2023-09-10T17:57:28.556094Z",
+      },
+      {
+        id: 2,
+        rating: 5,
+        comment: "Uma obra-prima das culinárias indiana e italiana!",
+        author: "Charlie Brown",
+        date: "2023-08-25T17:57:28.556094Z",
+      },
+    ],
+  },
+  {
+    id: 1,
+    name: 'Zucchipakoda',
+    image: 'assets/images/zucchipakoda.png',
+    category: 'entrada',
+    label: '',
+    price: '1.99',
+    description: 'Abobrinha empanada e frita, coberta com uma leve massa de farinha de grão-de-bico temperada, acompanhada de um molho doce e picante de tamarindo.',
+    ingredients: [
+      'Abobrinha fatiada',
+      'Farinha de grão-de-bico',
+      'Água',
+      'Especiarias indianas (cominho, cúrcuma, pimenta)',
+      'Molho de tamarindo',
+      'Óleo para fritura',
+    ],
+    recipe: 'Fatie a abobrinha finamente, cubra com uma massa de farinha de grão-de-bico, especiarias e água. Frite até ficar crocante e dourado. Sirva com molho de tamarindo.',
+    comments: [
+      {
+        id: 0,
+        rating: 5,
+        comment: "Crocante e saboroso, minha nova entrada favorita!",
+        author: "Diana Prince",
+        date: "2023-09-12T17:57:28.556094Z",
+      },
+      {
+        id: 1,
+        rating: 4,
+        comment: "Temperado na medida certa, combina muito bem com o molho.",
+        author: "Ethan Hunt",
+        date: "2023-09-07T17:57:28.556094Z",
+      },
+      {
+        id: 2,
+        rating: 5,
+        comment: "Leve e delicioso, não consigo parar de comer!",
+        author: "Fiona Gallagher",
+        date: "2023-08-30T17:57:28.556094Z",
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: 'Vadonut',
+    image: 'assets/images/vadonut.png',
+    category: 'entrada',
+    label: 'Novo',
+    price: '1.99',
+    description: 'Uma experiência clássica de ConFusion, é um vada ou é um donut?',
+    ingredients: [
+      'Massa de vada tradicional',
+      'Óleo para fritura',
+      'Chutney de coco (opcional)',
+      'Sambhar picante (opcional)',
+    ],
+    recipe: 'Modele uma massa tradicional de vada em forma de donut. Frite até dourar. Sirva com chutney de coco ou sambhar picante.',
+    comments: [
+      {
+        id: 0,
+        rating: 5,
+        comment: "Uma combinação peculiar, mas deliciosa!",
+        author: "George Lucas",
+        date: "2023-09-18T17:57:28.556094Z",
+      },
+      {
+        id: 1,
+        rating: 4,
+        comment: "Tão macio e saboroso, uma delícia única.",
+        author: "Hannah Baker",
+        date: "2023-09-08T17:57:28.556094Z",
+      },
+      {
+        id: 2,
+        rating: 5,
+        comment: "Perfeito com uma xícara de café quente!",
+        author: "Isaac Newton",
+        date: "2023-08-20T17:57:28.556094Z",
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: 'ElaiCheese Cake',
+    image: 'assets/images/elaicheesecake.png',
+    category: 'sobremesa',
+    label: '',
+    price: '2.99',
+    description: 'Um delicioso cheesecake estilo Nova York, com crosta de bolacha Graham e temperado com cardamomo indiano.',
+    ingredients: [
+      'Bolacha Graham triturada',
+      'Manteiga derretida',
+      'Cream cheese',
+      'Açúcar',
+      'Ovos',
+      'Cardamomo em pó',
+    ],
+    recipe: 'Prepare uma crosta de bolacha Graham. Misture cream cheese, açúcar, ovos e cardamomo. Asse em banho-maria até firmar. Resfrie antes de servir.',
+    comments: [
+      {
+        id: 0,
+        rating: 5,
+        comment: "Rico e cremoso, com um toque de especiarias. Fantástico!",
+        author: "James Bond",
+        date: "2023-09-10T17:57:28.556094Z",
+      },
+      {
+        id: 1,
+        rating: 4,
+        comment: "O cardamomo adiciona um toque único e delicioso.",
+        author: "Karen Smith",
+        date: "2023-08-29T17:57:28.556094Z",
+      },
+      {
+        id: 2,
+        rating: 5,
+        comment: "Absolutamente divino, uma sobremesa perfeita!",
+        author: "Lara Croft",
+        date: "2023-08-15T17:57:28.556094Z",
+      },
+    ],
+  },
+]

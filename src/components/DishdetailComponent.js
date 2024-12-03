@@ -1,7 +1,8 @@
-import React from 'react';
-import { Card, CardImg, CardBody, CardTitle, CardText } from 'reactstrap';
+import React from "react";
+import { Card, CardImg, CardBody, CardTitle, CardText } from "reactstrap";
 
 const DishDetail = ({ dish }) => {
+  // Renderiza os detalhes do prato em um Card
   const renderDish = (dish) => {
     if (dish) {
       return (
@@ -10,6 +11,17 @@ const DishDetail = ({ dish }) => {
           <CardBody>
             <CardTitle>{dish.name}</CardTitle>
             <CardText>{dish.description}</CardText>
+            <CardText>
+              <strong>Preço:</strong> R$ {dish.price}
+            </CardText>
+            <CardText>
+              <strong>Ingredientes:</strong>
+              <ul>
+                {dish.ingredients.map((ingredient, index) => (
+                  <li key={index}>{ingredient}</li>
+                ))}
+              </ul>
+            </CardText>
           </CardBody>
         </Card>
       );
@@ -17,6 +29,7 @@ const DishDetail = ({ dish }) => {
     return <div></div>;
   };
 
+  // Renderiza os comentários em uma lista não estilizada
   const renderComments = (comments) => {
     if (comments) {
       return (
@@ -24,11 +37,10 @@ const DishDetail = ({ dish }) => {
           <h4>Comentários</h4>
           <ul className="list-unstyled">
             {comments.map((comment) => (
-              <li key={comment.id} className="mb-3">
-                <p>"{comment.comment}"</p>
+              <li key={comment.id}>
+                <p>{comment.comment}</p>
                 <p>
-                  <strong>-- {comment.author}</strong>,{" "}
-                  {new Date(comment.date).toLocaleDateString()}
+                  -- {comment.author}, {new Date(comment.date).toLocaleDateString()}
                 </p>
               </li>
             ))}
@@ -39,13 +51,7 @@ const DishDetail = ({ dish }) => {
     return <div></div>;
   };
 
-  if (!dish) {
-    return (
-      <div className="container">
-        <p className="text-muted">Selecione um prato para ver os detalhes.</p>
-      </div>
-    );
-  }
+  if (!dish) return <div></div>;
 
   return (
     <div className="row">
